@@ -60,7 +60,7 @@ Hello World
 
 ## Table of contents
 - [Requirements](#requirements)
-- [Installation](#installation)
+- [Installation (and update)](#installation-and-update)
 - [Usage](#usage)
     - [Login](#login)
     - [Init](#init)
@@ -93,7 +93,7 @@ Before running the `edit` command, one of the following editors need to be insta
 
 - [Microsoft Visual Studio Code](https://code.visualstudio.com/) (currently the sole editor supported).
 
-## Installation
+## Installation (and update)
 
 The easiest way to install Eleven is by running the following command in your terminal:
 
@@ -112,6 +112,10 @@ Once done, you could confirm that Eleven is installed by running the `eleven` co
 ```bash
 eleven --help
 ```
+
+### Update
+
+The command used to install the CLI could also be used to update it to another version.
 
 ## Usage
 
