@@ -113,9 +113,9 @@ Once done, you could confirm that Eleven is installed by running the `eleven` co
 eleven --help
 ```
 
-### Update
+#### Update
 
-The command used to install the CLI could also be used to update it to another version.
+The command used to install Eleven could also be used to update it to another version.
 
 ## Usage
 
