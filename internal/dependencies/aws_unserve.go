@@ -44,6 +44,8 @@ func provideAWSUnserveFeature(
 			awsServiceBuilderSet,
 			awsViewableErrorBuilder,
 
+			loggerSet,
+
 			stepperSet,
 
 			agentSet,

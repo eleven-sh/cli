@@ -14,23 +14,43 @@ func NewLogger() Logger {
 }
 
 func (Logger) Info(format string, v ...interface{}) {
-	fmt.Fprintf(os.Stderr, config.ColorsCyan(format)+"\n", v...)
+	toDisplay := replaceNewLinesForOS(
+		fmt.Sprintf(format+"\n", v...),
+	)
+
+	fmt.Fprint(os.Stderr, config.ColorsCyan(toDisplay))
 }
 
 func (Logger) Warning(format string, v ...interface{}) {
-	fmt.Fprintf(os.Stderr, config.ColorsYellow(format)+"\n", v...)
+	toDisplay := replaceNewLinesForOS(
+		fmt.Sprintf(format+"\n", v...),
+	)
+
+	fmt.Fprint(os.Stderr, config.ColorsYellow(toDisplay))
 }
 
 func (Logger) Error(format string, v ...interface{}) {
-	fmt.Fprintf(os.Stderr, config.ColorsRed(format)+"\n", v...)
+	toDisplay := replaceNewLinesForOS(
+		fmt.Sprintf(format+"\n", v...),
+	)
+
+	fmt.Fprint(os.Stderr, config.ColorsRed(toDisplay))
 }
 
 func (Logger) Log(format string, v ...interface{}) {
-	fmt.Fprintf(os.Stderr, format+"\n", v...)
+	toDisplay := replaceNewLinesForOS(
+		fmt.Sprintf(format+"\n", v...),
+	)
+
+	fmt.Fprint(os.Stderr, toDisplay)
 }
 
 func (Logger) LogNoNewline(format string, v ...interface{}) {
-	fmt.Fprintf(os.Stderr, format, v...)
+	toDisplay := replaceNewLinesForOS(
+		fmt.Sprintf(format, v...),
+	)
+
+	fmt.Fprint(os.Stderr, toDisplay)
 }
 
 func (l Logger) Write(p []byte) (n int, err error) {

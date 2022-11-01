@@ -36,7 +36,8 @@ import (
 // Injectors from aws_edit.go:
 
 func provideAWSEditFeature(userConfigEnvVarsResolverOpts userconfig.EnvVarsResolverOpts, userConfigFilesResolverOpts userconfig.FilesResolverOpts, userConfigLocalResolverOpts aws.UserConfigLocalResolverOpts) features.EditFeature {
-	stepperStepper := stepper.NewStepper()
+	logger := system.NewLogger()
+	stepperStepper := stepper.NewStepper(logger)
 	awsAWSViewableErrorBuilder := aws.NewAWSViewableErrorBuilder()
 	displayer := system.NewDisplayer()
 	baseView := views.NewBaseView(displayer)
@@ -60,7 +61,8 @@ func provideAWSEditFeature(userConfigEnvVarsResolverOpts userconfig.EnvVarsResol
 // Injectors from aws_init.go:
 
 func provideAWSInitFeature(userConfigEnvVarsResolverOpts userconfig.EnvVarsResolverOpts, userConfigFilesResolverOpts userconfig.FilesResolverOpts, userConfigLocalResolverOpts aws.UserConfigLocalResolverOpts) features.InitFeature {
-	stepperStepper := stepper.NewStepper()
+	logger := system.NewLogger()
+	stepperStepper := stepper.NewStepper(logger)
 	userConfig := config2.NewUserConfig()
 	awsAWSViewableErrorBuilder := aws.NewAWSViewableErrorBuilder()
 	displayer := system.NewDisplayer()
@@ -69,7 +71,6 @@ func provideAWSInitFeature(userConfigEnvVarsResolverOpts userconfig.EnvVarsResol
 	initPresenter := presenters.NewInitPresenter(awsAWSViewableErrorBuilder, initView)
 	defaultClientBuilder := agent.NewDefaultClientBuilder()
 	githubService := github.NewService()
-	logger := system.NewLogger()
 	sshConfig := ssh.NewConfigWithDefaultConfigFilePath()
 	keys := ssh.NewKeysWithDefaultDir()
 	knownHosts := ssh.NewKnownHostsWithDefaultKnownHostsFilePath()
@@ -89,7 +90,8 @@ func provideAWSInitFeature(userConfigEnvVarsResolverOpts userconfig.EnvVarsResol
 // Injectors from aws_remove.go:
 
 func provideAWSRemoveFeature(userConfigEnvVarsResolverOpts userconfig.EnvVarsResolverOpts, userConfigFilesResolverOpts userconfig.FilesResolverOpts, userConfigLocalResolverOpts aws.UserConfigLocalResolverOpts) features.RemoveFeature {
-	stepperStepper := stepper.NewStepper()
+	logger := system.NewLogger()
+	stepperStepper := stepper.NewStepper(logger)
 	awsAWSViewableErrorBuilder := aws.NewAWSViewableErrorBuilder()
 	displayer := system.NewDisplayer()
 	baseView := views.NewBaseView(displayer)
@@ -111,7 +113,8 @@ func provideAWSRemoveFeature(userConfigEnvVarsResolverOpts userconfig.EnvVarsRes
 // Injectors from aws_serve.go:
 
 func provideAWSServeFeature(userConfigEnvVarsResolverOpts userconfig.EnvVarsResolverOpts, userConfigFilesResolverOpts userconfig.FilesResolverOpts, userConfigLocalResolverOpts aws.UserConfigLocalResolverOpts) features.ServeFeature {
-	stepperStepper := stepper.NewStepper()
+	logger := system.NewLogger()
+	stepperStepper := stepper.NewStepper(logger)
 	awsAWSViewableErrorBuilder := aws.NewAWSViewableErrorBuilder()
 	displayer := system.NewDisplayer()
 	baseView := views.NewBaseView(displayer)
@@ -134,7 +137,8 @@ func provideAWSServeFeature(userConfigEnvVarsResolverOpts userconfig.EnvVarsReso
 // Injectors from aws_uninstall.go:
 
 func provideAWSUninstallFeature(userConfigEnvVarsResolverOpts userconfig.EnvVarsResolverOpts, userConfigFilesResolverOpts userconfig.FilesResolverOpts, userConfigLocalResolverOpts aws.UserConfigLocalResolverOpts) features.UninstallFeature {
-	stepperStepper := stepper.NewStepper()
+	logger := system.NewLogger()
+	stepperStepper := stepper.NewStepper(logger)
 	awsAWSViewableErrorBuilder := aws.NewAWSViewableErrorBuilder()
 	displayer := system.NewDisplayer()
 	baseView := views.NewBaseView(displayer)
@@ -156,7 +160,8 @@ func provideAWSUninstallFeature(userConfigEnvVarsResolverOpts userconfig.EnvVars
 // Injectors from aws_unserve.go:
 
 func provideAWSUnserveFeature(userConfigEnvVarsResolverOpts userconfig.EnvVarsResolverOpts, userConfigFilesResolverOpts userconfig.FilesResolverOpts, userConfigLocalResolverOpts aws.UserConfigLocalResolverOpts) features.UnserveFeature {
-	stepperStepper := stepper.NewStepper()
+	logger := system.NewLogger()
+	stepperStepper := stepper.NewStepper(logger)
 	awsAWSViewableErrorBuilder := aws.NewAWSViewableErrorBuilder()
 	displayer := system.NewDisplayer()
 	baseView := views.NewBaseView(displayer)
@@ -189,7 +194,8 @@ func ProvideEnvRepositoriesResolver() entities.EnvRepositoriesResolver {
 // Injectors from hetzner_edit.go:
 
 func provideHetznerEditFeature(userConfigEnvVarsResolverOpts userconfig2.EnvVarsResolverOpts, userConfigFilesResolverOpts userconfig2.FilesResolverOpts, userConfigLocalResolverOpts hetzner.UserConfigLocalResolverOpts, serviceBuilderOpts service2.BuilderOpts) features.EditFeature {
-	stepperStepper := stepper.NewStepper()
+	logger := system.NewLogger()
+	stepperStepper := stepper.NewStepper(logger)
 	hetznerHetznerViewableErrorBuilder := hetzner.NewHetznerViewableErrorBuilder()
 	displayer := system.NewDisplayer()
 	baseView := views.NewBaseView(displayer)
@@ -212,7 +218,8 @@ func provideHetznerEditFeature(userConfigEnvVarsResolverOpts userconfig2.EnvVars
 // Injectors from hetzner_init.go:
 
 func provideHetznerInitFeature(userConfigEnvVarsResolverOpts userconfig2.EnvVarsResolverOpts, userConfigFilesResolverOpts userconfig2.FilesResolverOpts, userConfigLocalResolverOpts hetzner.UserConfigLocalResolverOpts, serviceBuilderOpts service2.BuilderOpts) features.InitFeature {
-	stepperStepper := stepper.NewStepper()
+	logger := system.NewLogger()
+	stepperStepper := stepper.NewStepper(logger)
 	userConfig := config2.NewUserConfig()
 	hetznerHetznerViewableErrorBuilder := hetzner.NewHetznerViewableErrorBuilder()
 	displayer := system.NewDisplayer()
@@ -221,7 +228,6 @@ func provideHetznerInitFeature(userConfigEnvVarsResolverOpts userconfig2.EnvVars
 	initPresenter := presenters.NewInitPresenter(hetznerHetznerViewableErrorBuilder, initView)
 	defaultClientBuilder := agent.NewDefaultClientBuilder()
 	githubService := github.NewService()
-	logger := system.NewLogger()
 	sshConfig := ssh.NewConfigWithDefaultConfigFilePath()
 	keys := ssh.NewKeysWithDefaultDir()
 	knownHosts := ssh.NewKnownHostsWithDefaultKnownHostsFilePath()
@@ -240,7 +246,8 @@ func provideHetznerInitFeature(userConfigEnvVarsResolverOpts userconfig2.EnvVars
 // Injectors from hetzner_remove.go:
 
 func provideHetznerRemoveFeature(userConfigEnvVarsResolverOpts userconfig2.EnvVarsResolverOpts, userConfigFilesResolverOpts userconfig2.FilesResolverOpts, userConfigLocalResolverOpts hetzner.UserConfigLocalResolverOpts, serviceBuilderOpts service2.BuilderOpts) features.RemoveFeature {
-	stepperStepper := stepper.NewStepper()
+	logger := system.NewLogger()
+	stepperStepper := stepper.NewStepper(logger)
 	hetznerHetznerViewableErrorBuilder := hetzner.NewHetznerViewableErrorBuilder()
 	displayer := system.NewDisplayer()
 	baseView := views.NewBaseView(displayer)
@@ -261,7 +268,8 @@ func provideHetznerRemoveFeature(userConfigEnvVarsResolverOpts userconfig2.EnvVa
 // Injectors from hetzner_serve.go:
 
 func provideHetznerServeFeature(userConfigEnvVarsResolverOpts userconfig2.EnvVarsResolverOpts, userConfigFilesResolverOpts userconfig2.FilesResolverOpts, userConfigLocalResolverOpts hetzner.UserConfigLocalResolverOpts, serviceBuilderOpts service2.BuilderOpts) features.ServeFeature {
-	stepperStepper := stepper.NewStepper()
+	logger := system.NewLogger()
+	stepperStepper := stepper.NewStepper(logger)
 	hetznerHetznerViewableErrorBuilder := hetzner.NewHetznerViewableErrorBuilder()
 	displayer := system.NewDisplayer()
 	baseView := views.NewBaseView(displayer)
@@ -283,7 +291,8 @@ func provideHetznerServeFeature(userConfigEnvVarsResolverOpts userconfig2.EnvVar
 // Injectors from hetzner_uninstall.go:
 
 func provideHetznerUninstallFeature(userConfigEnvVarsResolverOpts userconfig2.EnvVarsResolverOpts, userConfigFilesResolverOpts userconfig2.FilesResolverOpts, userConfigLocalResolverOpts hetzner.UserConfigLocalResolverOpts, serviceBuilderOpts service2.BuilderOpts) features.UninstallFeature {
-	stepperStepper := stepper.NewStepper()
+	logger := system.NewLogger()
+	stepperStepper := stepper.NewStepper(logger)
 	hetznerHetznerViewableErrorBuilder := hetzner.NewHetznerViewableErrorBuilder()
 	displayer := system.NewDisplayer()
 	baseView := views.NewBaseView(displayer)
@@ -304,7 +313,8 @@ func provideHetznerUninstallFeature(userConfigEnvVarsResolverOpts userconfig2.En
 // Injectors from hetzner_unserve.go:
 
 func provideHetznerUnserveFeature(userConfigEnvVarsResolverOpts userconfig2.EnvVarsResolverOpts, userConfigFilesResolverOpts userconfig2.FilesResolverOpts, userConfigLocalResolverOpts hetzner.UserConfigLocalResolverOpts, serviceBuilderOpts service2.BuilderOpts) features.UnserveFeature {
-	stepperStepper := stepper.NewStepper()
+	logger := system.NewLogger()
+	stepperStepper := stepper.NewStepper(logger)
 	hetznerHetznerViewableErrorBuilder := hetzner.NewHetznerViewableErrorBuilder()
 	displayer := system.NewDisplayer()
 	baseView := views.NewBaseView(displayer)

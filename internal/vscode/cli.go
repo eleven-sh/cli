@@ -6,10 +6,9 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
-	"regexp"
 	"runtime"
-	"strings"
 
+	"github.com/eleven-sh/cli/internal/exceptions"
 	"github.com/eleven-sh/cli/internal/system"
 )
 
@@ -32,27 +31,21 @@ func (c CLI) Exec(arg ...string) (string, error) {
 
 	cmd := exec.Command(CLIPath, arg...)
 
-	var stdout bytes.Buffer
-	var stderr bytes.Buffer
+	var stdBuf bytes.Buffer
 
-	cmd.Stdout = &stdout
-	cmd.Stderr = &stderr
+	cmd.Stdout = &stdBuf
+	cmd.Stderr = &stdBuf
 
 	err = cmd.Run()
 
 	if err != nil {
-		newLineRegExp := regexp.MustCompile(`\n+`)
-
-		return "", fmt.Errorf(
-			"Error while calling the Visual Studio Code CLI:\n\n%s\n\n%s",
-			strings.TrimSpace(
-				newLineRegExp.ReplaceAllLiteralString(stderr.String(), " "),
-			),
-			err.Error(),
-		)
+		return "", exceptions.ErrVSCodeError{
+			Logs:         stdBuf.String(),
+			ErrorMessage: err.Error(),
+		}
 	}
 
-	return stdout.String(), nil
+	return stdBuf.String(), nil
 }
 
 func (c CLI) LookupPath(operatingSystem string) (string, error) {

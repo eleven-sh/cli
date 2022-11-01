@@ -1,20 +1,27 @@
 package stepper
 
 import (
-	"fmt"
 	"time"
 
 	"github.com/briandowns/spinner"
 	"github.com/eleven-sh/cli/internal/config"
+	"github.com/eleven-sh/cli/internal/interfaces"
 	"github.com/eleven-sh/eleven/stepper"
 )
 
 var currentStep *Step
 
-type Stepper struct{}
+type Stepper struct {
+	logger interfaces.Logger
+}
 
-func NewStepper() Stepper {
-	return Stepper{}
+func NewStepper(
+	logger interfaces.Logger,
+) Stepper {
+
+	return Stepper{
+		logger: logger,
+	}
 }
 
 func (s Stepper) startStep(
@@ -24,7 +31,7 @@ func (s Stepper) startStep(
 ) stepper.Step {
 
 	if currentStep == nil && !noNewLineAtStart {
-		fmt.Println("")
+		s.logger.Log("")
 	}
 
 	if currentStep != nil {
@@ -39,6 +46,7 @@ func (s Stepper) startStep(
 	spin.Start()
 
 	currentStep = &Step{
+		logger:          s.logger,
 		spin:            spin,
 		removeAfterDone: removeAfterDone,
 	}

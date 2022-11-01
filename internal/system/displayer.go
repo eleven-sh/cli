@@ -12,5 +12,9 @@ func NewDisplayer() Displayer {
 }
 
 func (Displayer) Display(w io.Writer, format string, args ...interface{}) {
-	fmt.Fprintf(w, format, args...)
+	toDisplay := replaceNewLinesForOS(
+		fmt.Sprintf(format, args...),
+	)
+
+	fmt.Fprint(w, toDisplay)
 }

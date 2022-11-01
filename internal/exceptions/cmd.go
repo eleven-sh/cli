@@ -21,3 +21,12 @@ type ErrMissingRequirements struct {
 func (ErrMissingRequirements) Error() string {
 	return "ErrMissingRequirements"
 }
+
+type ErrVSCodeError struct {
+	Logs         string
+	ErrorMessage string
+}
+
+func (ErrVSCodeError) Error() string {
+	return "ErrVSCodeError"
+}

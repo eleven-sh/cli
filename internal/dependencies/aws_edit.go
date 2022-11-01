@@ -44,6 +44,8 @@ func provideAWSEditFeature(
 			awsServiceBuilderSet,
 			awsViewableErrorBuilder,
 
+			loggerSet,
+
 			stepperSet,
 
 			vscodeProcessManagerSet,
