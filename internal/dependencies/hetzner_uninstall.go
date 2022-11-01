@@ -48,6 +48,8 @@ func provideHetznerUninstallFeature(
 			hetznerServiceBuilderSet,
 			hetznerViewableErrorBuilder,
 
+			loggerSet,
+
 			stepperSet,
 
 			wire.Bind(new(features.UninstallOutputHandler), new(featuresCLI.UninstallOutputHandler)),

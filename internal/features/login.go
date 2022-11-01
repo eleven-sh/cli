@@ -165,17 +165,17 @@ func (l LoginFeature) Execute(input LoginInput) error {
 	l.logger.Log(bold("\nYou will be taken to your browser to connect your GitHub account...\n"))
 
 	l.logger.Info("If your browser doesn't open automatically, go to the following link:\n")
-	l.logger.Log("%s", gitHubOAuthAuthorizeURL)
+	l.logger.Log("%s\n", gitHubOAuthAuthorizeURL)
 
 	l.sleeper.Sleep(4 * time.Second)
 
 	if err := l.browser.OpenURL(gitHubOAuthAuthorizeURL); err != nil {
 		l.logger.Error(
-			"\nCannot open browser! Please visit above URL ↑",
+			"Cannot open browser! Please visit above URL ↑\n",
 		)
 	}
 
-	l.logger.Warning("\nWaiting for GitHub authorization... (Press Ctrl-C to quit)\n")
+	l.logger.Warning("Waiting for GitHub authorization... (Press Ctrl-C to quit)\n")
 
 	select {
 	case httpServerServeError := <-httpServerServeErrorChan:

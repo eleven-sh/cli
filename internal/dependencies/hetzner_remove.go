@@ -48,6 +48,8 @@ func provideHetznerRemoveFeature(
 			hetznerServiceBuilderSet,
 			hetznerViewableErrorBuilder,
 
+			loggerSet,
+
 			stepperSet,
 
 			wire.Bind(new(features.RemoveOutputHandler), new(featuresCLI.RemoveOutputHandler)),

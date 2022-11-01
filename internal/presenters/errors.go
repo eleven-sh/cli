@@ -260,6 +260,14 @@ func (ElevenViewableErrorBuilder) Build(err error) (viewableError *views.Viewabl
 		return
 	}
 
+	if typedError, ok := err.(exceptions.ErrVSCodeError); ok {
+		viewableError.Title = "Visual Studio Code CLI error"
+		viewableError.Logs = typedError.Logs
+		viewableError.Message = typedError.ErrorMessage
+
+		return
+	}
+
 	if typedError, ok := err.(entities.ErrUnresolvableDomain); ok {
 		viewableError.Title = "Unresolvable domain name"
 		viewableError.Message = fmt.Sprintf(

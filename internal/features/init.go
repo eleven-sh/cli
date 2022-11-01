@@ -2,7 +2,6 @@ package features
 
 import (
 	"encoding/json"
-	"fmt"
 	"io"
 	"strconv"
 
@@ -218,7 +217,8 @@ func (i InitOutputHandler) HandleOutput(output features.InitOutput) error {
 
 					if err != nil {
 						stepper.StopCurrentStep()
-						return fmt.Errorf(logs + "\n\n" + err.Error())
+						i.logger.Log(logs)
+						return err
 					}
 
 					if len(reply.LogLineHeader) > 0 {

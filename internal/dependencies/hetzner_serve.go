@@ -48,6 +48,8 @@ func provideHetznerServeFeature(
 			hetznerServiceBuilderSet,
 			hetznerViewableErrorBuilder,
 
+			loggerSet,
+
 			stepperSet,
 
 			agentSet,

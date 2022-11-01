@@ -44,6 +44,8 @@ func provideAWSUninstallFeature(
 			awsServiceBuilderSet,
 			awsViewableErrorBuilder,
 
+			loggerSet,
+
 			stepperSet,
 
 			wire.Bind(new(features.UninstallOutputHandler), new(featuresCLI.UninstallOutputHandler)),

@@ -48,6 +48,8 @@ func provideHetznerEditFeature(
 			hetznerServiceBuilderSet,
 			hetznerViewableErrorBuilder,
 
+			loggerSet,
+
 			stepperSet,
 
 			vscodeProcessManagerSet,
