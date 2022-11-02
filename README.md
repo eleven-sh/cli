@@ -341,7 +341,7 @@ The `stop` command stops a command started <ins>**in the current path**</ins>.
 
 #### > What do you mean by "code sandbox"?
 
-In the context of Eleven, a "code sandbox" is nothing more than a VM running in your cloud provider account. 
+In the context of Eleven, a "code sandbox" is nothing more than a VM, configured and ready-to-use, running in your cloud provider account.
 
 It's called "code sandbox" because the code that you will run in it will be 100% isolated from your local computer (unlike containers).
 
