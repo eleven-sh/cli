@@ -95,17 +95,25 @@ Before running the `edit` command, one of the following editors need to be insta
 
 ## Installation (and update)
 
-The easiest way to install Eleven is by running the following command in your terminal:
+The process required to install the Eleven CLI vary depending on your operating system:
 
-```bash
-curl -sf https://raw.githubusercontent.com/eleven-sh/cli/main/install.sh | sh -s -- -b /usr/local/bin latest
-```
+- **On Linux and MacOS,** the easiest way to install it is by running the following command in your terminal:
 
-This command could be run as-is or by changing:
+  ```bash
+  curl -sf https://raw.githubusercontent.com/eleven-sh/cli/main/install.sh | sh -s -- -b /usr/local/bin latest
+  ```
 
-  - The installation directory by replacing `/usr/local/bin` with your **preferred path**.
-  
-  - The version installed by replacing `latest` with a **[specific version](https://github.com/eleven-sh/cli/releases)**.
+  This command could be run as-is or by changing:
+
+    - The installation directory by replacing `/usr/local/bin` with your **preferred path**.
+    
+    - The version installed by replacing `latest` with a **[specific version](https://github.com/eleven-sh/cli/releases)**.
+
+- **On Windows,** the easiest way is by running the following **Powershell** script:
+
+  ```bash
+  irm https://raw.githubusercontent.com/eleven-sh/cli/main/install.ps1 | iex
+  ```
 
 Once done, you could confirm that Eleven is installed by running the `eleven` command:
 
