@@ -9,7 +9,7 @@
 </p>
 
 <blockquote align="left">
-  ... use it to deploy your app, as a remote development environment or even to test some code. It's up to you!
+  ... use it as a remote development environment, to test some code or even to deploy your app. It's up to you!
 </blockquote>
 
 ```bash
