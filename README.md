@@ -5,7 +5,7 @@
 
 <p align="center">
   <h1 align="center">Eleven</h1>
-  <p align="center">Code sandboxes with automatic HTTPS. Running in VMs in your cloud provider account.<br />Currently available on <a href="https://github.com/eleven-sh/aws-cloud-provider">Amazon Web Services</a> and <a href="https://github.com/eleven-sh/hetzner-cloud-provider">Hetzner</a>.</p>
+  <p align="center">Code sandboxes with auto-HTTPS and long running processes. Running in VMs in your cloud provider account.<br />Currently available on <a href="https://github.com/eleven-sh/aws-cloud-provider">Amazon Web Services</a> and <a href="https://github.com/eleven-sh/hetzner-cloud-provider">Hetzner</a>.</p>
 </p>
 
 <blockquote align="left">
